@@ -1,26 +1,16 @@
 <div class= "middle">
-<h3>>WYŚLIJ WNIOSEK<</h3>
-<br>
-<h5>Wpisz treść wniosku:</h5>
+  <h3>>WYŚLIJ WNIOSEK<</h3>
+  <br>
+  <h5>Wpisz treść wniosku:</h5>
 
-  <%= form_with(model: @document, local: true) do |f| %>
-  <div class="form-row">
-    <%# f.label :content, class: "col-2 col-form-label text-light" %>
-    <div class="col-md-12">
-      <%= f.text_field :content, class:"form-control rounded middle", placeholder:"Treść wniosku" %>
-    </div>
-  </div>
-  
- <%= f.submit %>
-
-<br>
-<!-- Buttons -->
-<button type="button" class="btn btn-primary">
-  ZAPISZ WNIOSEK
-</button>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  WYŚLIJ WNIOSEK
-</button>
+    <%= form_with(model: @document, local: true) do |f| %>
+      <div class="form-row">
+        <%# f.label :content, class: "col-2 col-form-label text-light" %>
+        <div class="col-md-12">
+          <%= f.text_field :content, class:"form-control rounded middle", placeholder:"Treść wniosku" %>
+        </div>
+      </div>
+      <br> 
+      <%= f.submit "Wyślij wniosek", class:"btn btn-primary"%>
+    <% end %>
 </div>
-<% end %>

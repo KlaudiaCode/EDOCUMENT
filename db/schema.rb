@@ -13,9 +13,11 @@
 ActiveRecord::Schema.define(version: 2021_01_31_175046) do
 
   create_table "documents", force: :cascade do |t|
+    t.integer "user_id"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -26,4 +28,5 @@ ActiveRecord::Schema.define(version: 2021_01_31_175046) do
     t.string "password_digest"
   end
 
+  add_foreign_key "documents", "users"
 end
