@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_181032) do
+ActiveRecord::Schema.define(version: 2021_02_02_184945) do
 
   create_table "documents", force: :cascade do |t|
     t.integer "user_id"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status", default: "pending"
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_181032) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.string "role"
+    t.boolean "active", default: false
   end
 
   add_foreign_key "documents", "users"

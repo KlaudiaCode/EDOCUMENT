@@ -1,13 +1,13 @@
 <div class="middle">
-TO JA USER:
-<%= @user.usernum %>
-<br>
-MÓJ EMAIL:
-<%= @user.email %>
-<br><br>
-LISTA WNIOSKÓW:
-<% @documents.each do |doc| %>
-<br>
-<%= link_to doc.content, document_path(doc) %>
-<% end %>
+    TO JA USER:
+    <%= @user.usernum %>
+    <br>
+    MÓJ EMAIL:
+    <%= @user.email %>
+    <br><br>
+    LISTA WNIOSKÓW:
+    <% @documents.each do |doc| %>
+        <br>
+        <%= link_to doc.content, document_path(doc) %>
+    <% end %>
 </div>

@@ -1,17 +1,20 @@
-<div class="container middle">
-    <div class="row">
-    <div class="column">
-        <div class="jumbotron jumb">
-            <h1 class="display-4">E-DOCUMENT</h1>
-            <p class="lead">Nowoczesny sposób na składanie wniosków stypednialnych drogą elektorniczą. Wniosek wypełnisz i wyślesz w kilka minut od ręki. W przeciągu kilku sekund trafi bezpośrednio do dziekanatu.</p>
-            <hr class="my-4">
-            <p>Szybko, wygodnie, ekologicznie i bezkontaktowo. Wypróbuj już teraz!</p>
-            <p class="lead">
-                <%# link_to "Złóż wniosek", new_document_path, class:"btn btn-primary btn-lg"%> 
-                <%= link_to "Zarejestruj się", new_user_path, class:"btn btn-primary btn-lg"%> 
-                <%= link_to "Zaloguj się", login_path, class:"btn btn-primary btn-lg"%>
-            </p>
-        </div>
-    </div>
-    </div>
+<div class="middle">
+Lista użytkowników:
+
+<%= form_with url: active_path do |f| %>
+    <% @users.each do |u| %>
+        <br>
+        <%= f.fields_for :users, index: u.id do |fu| %>
+            <%= u.usernum %>
+            <% if u.active %>
+                <%= fu.check_box :active, checked: 'checked' %>
+            <% else %>
+                <%= fu.check_box :active %>
+            <% end %>
+        <% end %>
+    <% end %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>
 </div>

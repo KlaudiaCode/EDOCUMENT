@@ -1,1 +1,8 @@
-wyswietlanie wnioskow
+<div class="middle">
+
+LISTA WSZYSTKICH WNIOSKÓW:
+<% @documents.each do |doc| %>
+    <br>
+    <%= link_to doc.content, document_path(doc) %>
+<% end %>
+</div>

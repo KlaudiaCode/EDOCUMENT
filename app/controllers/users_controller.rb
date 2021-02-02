@@ -20,6 +20,20 @@ class UsersController < ApplicationController
         end
     end
 
+    def active
+        params[:users].each do |param|
+            user = User.find(param[0].to_i)
+            if param[1]['active'] == '1' && user.active == false
+                user.active = true
+            elsif param[1]['active'] == '0' && user.active == true
+                user.active = false
+            end
+            user.save
+        end
+        flash[:notice] = 'Użytkownicy zaktualizowani'
+        redirect_to '/users'
+    end
+
     private
     def user_params
         params.require(:user).permit(:usernum, :email, :password)
