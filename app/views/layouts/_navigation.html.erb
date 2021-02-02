@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <%= link_to root_path do %>
         <%= image_tag "ajplogo.jpg", class:"d-inline-block align-top size2"%>
     <% end %>
@@ -21,20 +21,23 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <% if session[:user_id] %>
-          [<%= session[:user_id]%>]
+          [<%= session[:user_num]%>]
           <% else %>
           [Niezalogowano]
         <% end %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%# link_to "Nowy wniosek", new_document_path, class:"dropdown-item"%>
           <% if session[:user_id] %>
+            <%=link_to "Moje konto", user_path(session[:user_id]), class:"dropdown-item"%>
+            <%=link_to "Nowy wniosek", new_document_path, class:"dropdown-item"%>
             <%=link_to "Wyloguj", logout_path, method: :delete, class:"dropdown-item"%>
           <% else %>
             <%=link_to "Zaloguj się", login_path, class:"dropdown-item"%>
+            <%=link_to "Zarejestruj się", new_user_path, class:"dropdown-item"%>
           <% end %>
         </div>
       </li>
     </ul>
   </div>
 </nav>
+<br>

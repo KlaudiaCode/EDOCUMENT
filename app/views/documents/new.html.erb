@@ -1,20 +1,19 @@
-<h3>WYŚLIJ WNIOSEK</h3>
+<div class= "middle">
+<h3>>WYŚLIJ WNIOSEK<</h3>
 <br>
 <h5>Wpisz treść wniosku:</h5>
 
-<!-- Form -->
-<form>
+  <%= form_with(model: @document, local: true) do |f| %>
   <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault01"></label>
-      <input type="text" class="form-control" id="validationDefault01" placeholder="Treść" value="" required>
+    <%# f.label :content, class: "col-2 col-form-label text-light" %>
+    <div class="col-md-12">
+      <%= f.text_field :content, class:"form-control rounded middle", placeholder:"Treść wniosku" %>
     </div>
   </div>
-</form>
+  
+ <%= f.submit %>
 
-
-
-
+<br>
 <!-- Buttons -->
 <button type="button" class="btn btn-primary">
   ZAPISZ WNIOSEK
@@ -23,3 +22,5 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   WYŚLIJ WNIOSEK
 </button>
+</div>
+<% end %>
