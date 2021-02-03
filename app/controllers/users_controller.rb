@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+    before_action :require_user, except: [:new, :create]
+    before_action :require_admin, only: :index
+    
     def index
         @users = User.all
     end
@@ -7,6 +10,10 @@ class UsersController < ApplicationController
     end
     def show
         @user = User.find(params[:id])
+        if @user.id != current_user.id
+            flash[:notice] = "Illegal action"
+            redirect_to root_path
+        end
         @documents = Document.all
     end
     def create

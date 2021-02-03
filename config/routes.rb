@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   post "active", to: "users#active"
+  post "status", to: "documents#status"
   delete "logout", to: "sessions#destroy"
 
   resources :users

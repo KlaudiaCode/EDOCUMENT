@@ -20,6 +20,10 @@
           <% if session[:user_id] %>
             <%=link_to "Moje konto", user_path(session[:user_id]), class:"dropdown-item"%>
             <%=link_to "Nowy wniosek", new_document_path, class:"dropdown-item"%>
+            <%if current_user.role == "admin"%>
+              <%=link_to "ADMIN - WNIOSKI", documents_path, class:"dropdown-item"%>
+              <%=link_to "ADMIN - UŻYTKOWNICY", users_path, class:"dropdown-item"%>
+            <% end %>
             <%=link_to "Wyloguj", logout_path, method: :delete, class:"dropdown-item"%>
           <% else %>
             <%=link_to "Zaloguj się", login_path, class:"dropdown-item"%>

@@ -1,8 +1,21 @@
 <div class="middle">
 
 LISTA WSZYSTKICH WNIOSKÓW:
-<% @documents.each do |doc| %>
+
+<%= form_with url: status_path do |f| %>
+    <% @documents.each do |d| %>
+        <br>
+        <%= f.fields_for :documents, index: d.id do |fd| %>
+            <%= link_to d.content, document_path(d) %>
+            <% if d.status == "accepted" %>
+                <%= fd.check_box :status, checked: 'checked' %>
+            <% else %>
+                <%= fd.check_box :status %>
+            <% end %>
+        <% end %>
+    <% end %>
     <br>
-    <%= link_to doc.content, document_path(doc) %>
+    <br>
+    <%= f.submit %>
 <% end %>
 </div>
