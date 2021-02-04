@@ -1,20 +1,29 @@
-<div class="middle">
-Lista użytkowników:
 
-<%= form_with url: active_path do |f| %>
-    <% @users.each do |u| %>
-        <br>
-        <%= f.fields_for :users, index: u.id do |fu| %>
-            <%= u.usernum %>
-            <% if u.active %>
-                <%= fu.check_box :active, checked: 'checked' %>
-            <% else %>
-                <%= fu.check_box :active %>
+
+<div class="container middle">
+    <div class="row">
+    <div class="col">
+        <div class="jumbotron jumb">
+            <p class="lead">Lista użytkowników:</p>
+            <div class="middle">
+            <%= form_with url: active_path do |f| %>
+                <% @users.each do |u| %>
+                    <br>
+                    <%= f.fields_for :users, index: u.id do |fu| %>
+                        <%= u.usernum %>
+                        <% if u.active %>
+                            <%= fu.check_box :active, checked: 'checked' %>
+                        <% else %>
+                            <%= fu.check_box :active %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <br>
+                <br>
+                <%= f.submit "Zaakceptuj", class:"btn btn-primary" %>
             <% end %>
-        <% end %>
-    <% end %>
-    <br>
-    <br>
-    <%= f.submit %>
-<% end %>
+            </div>
+        </div>
+    </div>
+    </div>
 </div>

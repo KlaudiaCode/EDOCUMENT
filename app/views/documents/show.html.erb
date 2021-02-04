@@ -1,10 +1,18 @@
 <div class="middle">
-    <h5>Treść wniosku:</h5>
-    <br>
-    <%= @document.content %>
-    <br>
-    <br>
-    <h5>Status wniosku:</h5>
-    <br>
-    <%= @document.status%>
+    <div class="container">
+        <div class="row">
+        <div class="col">
+            <div class="jumbotron jumb">
+                <h5>Treść wniosku:</h5>
+                <br>
+                <%= @document.content %>
+                <br>
+                <br>
+                <h5>Status wniosku:</h5>
+                <br>
+                <%= @document.status%>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
