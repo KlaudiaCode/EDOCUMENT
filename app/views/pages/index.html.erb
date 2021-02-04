@@ -3,13 +3,16 @@
     <div class="column">
         <div class="jumbotron jumb">
             <h1 class="display-4">E-DOCUMENT</h1>
-            <p class="lead">Nowoczesny sposób na składanie wniosków stypednialnych drogą elektorniczą. Wniosek wypełnisz i wyślesz w kilka minut od ręki. W przeciągu kilku sekund trafi bezpośrednio do dziekanatu.</p>
+            <p class="lead">Nowoczesny sposób na składanie wniosków stypednialnych drogą elektroniczą. Wniosek wypełnisz i wyślesz w kilka minut od ręki. W przeciągu kilku sekund trafi bezpośrednio do dziekanatu.</p>
             <hr class="my-4">
             <p>Szybko, wygodnie, ekologicznie i bezkontaktowo. Wypróbuj już teraz!</p>
             <p class="lead">
-                <%# link_to "Złóż wniosek", new_document_path, class:"btn btn-primary btn-lg"%> 
+            <% if logged_in? %>
+                <%= link_to "Złóż wniosek", new_document_path, class:"btn btn-primary btn-lg"%> 
+            <% else %>
                 <%= link_to "Zarejestruj się", new_user_path, class:"btn btn-primary btn-lg"%> 
                 <%= link_to "Zaloguj się", login_path, class:"btn btn-primary btn-lg"%>
+            <% end %>
             </p>
         </div>
     </div>

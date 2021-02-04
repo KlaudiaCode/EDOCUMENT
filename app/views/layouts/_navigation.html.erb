@@ -11,7 +11,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if session[:user_id] %>
-            [<%= session[:user_num]%>]
+            Użytkownik: [<%= session[:user_num]%>]
           <% else %>
             [Niezalogowano]
           <% end %>
@@ -21,8 +21,8 @@
             <%=link_to "Moje konto", user_path(session[:user_id]), class:"dropdown-item"%>
             <%=link_to "Nowy wniosek", new_document_path, class:"dropdown-item"%>
             <%if current_user.role == "admin"%>
-              <%=link_to "ADMIN - WNIOSKI", documents_path, class:"dropdown-item"%>
-              <%=link_to "ADMIN - UŻYTKOWNICY", users_path, class:"dropdown-item"%>
+              <%=link_to "WNIOSKI", documents_path, class:"dropdown-item"%>
+              <%=link_to "UŻYTKOWNICY", users_path, class:"dropdown-item"%>
             <% end %>
             <%=link_to "Wyloguj", logout_path, method: :delete, class:"dropdown-item"%>
           <% else %>
@@ -35,3 +35,4 @@
   </div>
 </nav>
 <br>
+<br><br>
