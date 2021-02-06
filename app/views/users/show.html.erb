@@ -4,13 +4,13 @@
         <div class="jumbotron jumb">
             <h1 class="display-4">Moje konto</h1><br>
             <p class="lead">
-            NUMER UŻYTKOWNIKA (nr indeksu):
+            Numer użytkownika (nr indeksu):
             <%= @user.usernum %><br>
-            ADRES EMAIL:
+            Adres email:
             <%= @user.email %><br><br></p>
                 <%if admin?%>
                 <%else%>
-                    <p class="lead">LISTA WNIOSKÓW:
+                    <p class="lead">Lista wniosków:
                     <hr class="my-4">
                     <% @documents.each do |doc| %><br>
                     <%= link_to doc.content, document_path(doc) %>
