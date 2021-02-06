@@ -4,17 +4,18 @@
 
       <%# render 'shared/errors', obj: @user %>
       <%= form_with(scope: :session, url: login_path, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
+        <h1 class="display-4 middle text-light">Logowanie</h1><br>
         <div class="form-group row">
-          <%= f.label :usernum, class: "col-2 col-form-label text-light" %>
+          <%= f.label "Identyfikator", class: "col-2 col-form-label text-light" %>
           <div class="col-10">
-            <%= f.text_field :usernum, class:"form-control shadow rounded", placeholder:"User number" %>
+            <%= f.text_field :usernum, class:"form-control shadow rounded", placeholder:"Wpisz numer indeksu" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <%= f.label :password, class: "col-2 col-form-label text-light" %>
+          <%= f.label "Hasło", class: "col-2 col-form-label text-light" %>
           <div class="col-10">
-            <%= f.password_field :password, class:"form-control", placeholder:"Enter your password" %>
+            <%= f.password_field :password, class:"form-control", placeholder:"Wpisz hasło" %>
           </div>
         </div>
 
@@ -22,7 +23,9 @@
           <%= f.submit "Zaloguj się", class:"btn btn-outline-light btn-lg" %>
         </div> 
       <%end%>
-      <%= link_to "Nie masz konta? Zarejestruj się!", new_user_path, class:"middle"%> 
+      <div class="middle">
+      <%= link_to "Nie masz konta? Zarejestruj się!", new_user_path, class: "text-dark"%> 
+      </div>
     </div>
   </div>
 </div>

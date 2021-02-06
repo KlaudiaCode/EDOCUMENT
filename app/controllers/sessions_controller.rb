@@ -9,21 +9,21 @@ class SessionsController < ApplicationController
             if user.active
                 session[:user_id] = user.id
                 session[:user_num] = user.usernum
-                flash[:notice] = "Logged in successfully!"
+                flash[:notice] = "Pomyślnie zalogowano!"
                 redirect_to user
             else 
-                flash[:warning] = "Your account is not active. Please contact admin."
+                flash[:warning] = "Twoje konto nie jest jeszcze aktywne. Poproś administatora o aktywację."
                 redirect_to root_path
             end
         else
-            flash.now[:alert] = "There was something wrong with your login details."
+            flash.now[:alert] = "Twój login lub hasło są nieprawidłowe."
             render 'new'
         end
     end
 
     def destroy
         session[:user_id] = nil
-        flash[:notice] = "Logged out"
+        flash[:notice] = "Wylogowano"
         redirect_to root_path
     end
 

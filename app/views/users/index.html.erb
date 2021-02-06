@@ -1,10 +1,8 @@
-
-
 <div class="container middle">
     <div class="row">
     <div class="col">
         <div class="jumbotron jumb">
-            <p class="lead">Lista użytkowników:</p>
+            <h5 class="lead">LISTA UŻYTKOWNIKÓW:</h5>
             <div class="middle">
             <%= form_with url: active_path do |f| %>
                 <% @users.each do |u| %>
@@ -20,7 +18,7 @@
                 <% end %>
                 <br>
                 <br>
-                <%= f.submit "Zaakceptuj", class:"btn btn-primary" %>
+                <%= f.submit "Zaakceptuj", class:"btn btn-info" %>
             <% end %>
             </div>
         </div>

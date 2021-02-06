@@ -1,16 +1,13 @@
-
-
-
-    <div class="container">
+<div class="container">
         <div class="row">
         <div class="col">
             <div class="jumbotron jumb middle">
-                <h5 class="middle">LISTA WSZYSTKICH WNIOSKÓW:</h5>
+                <h5 class="middle lead">LISTA WSZYSTKICH WNIOSKÓW:</h5>
                 <%= form_with url: status_path do |f| %>
                     <% @documents.each do |d| %>
                         <br>
                         <%= f.fields_for :documents, index: d.id do |fd| %>
-                            <%= link_to d.content, document_path(d) %>
+                            <%= link_to d.content, document_path(d), class:"text-info" %>
                             Użytkownik: [<%= d.user.usernum%>]
                             <% if d.status == "accepted" %>
                                 <%= fd.check_box :status, checked: 'checked' %>
@@ -21,9 +18,9 @@
                     <% end %> 
                     <br>
                     <br>
-                    <div class="middle"><%= f.submit "Zapisz zmiany", class:"btn btn-primary"%></div>
+                    <div class="middle"><%= f.submit "Zapisz zmiany", class:"btn btn-info"%></div>
                 <% end %>
             </div>
         </div>
         </div>
-    </div>
+</div>

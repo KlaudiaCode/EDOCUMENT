@@ -21,10 +21,10 @@
             <%=link_to "Moje konto", user_path(session[:user_id]), class:"dropdown-item"%>
             <%=link_to "Nowy wniosek", new_document_path, class:"dropdown-item"%>
             <%if current_user.role == "admin"%>
-              <%=link_to "WNIOSKI", documents_path, class:"dropdown-item"%>
-              <%=link_to "UŻYTKOWNICY", users_path, class:"dropdown-item"%>
+              <%=link_to "Wnioski", documents_path, class:"dropdown-item"%>
+              <%=link_to "Użytkownicy", users_path, class:"dropdown-item"%>
             <% end %>
-            <%=link_to "Wyloguj", logout_path, method: :delete, class:"dropdown-item"%>
+            <%=link_to "Wyloguj", logout_path, method: :delete, class:"dropdown-item text-danger"%>
           <% else %>
             <%=link_to "Zaloguj się", login_path, class:"dropdown-item"%>
             <%=link_to "Zarejestruj się", new_user_path, class:"dropdown-item"%>

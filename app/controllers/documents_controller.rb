@@ -15,7 +15,7 @@ class DocumentsController < ApplicationController
         user = User.find(session[:user_id])
         @document.user = user
         if @document.save
-            flash[:notice] = "Dokument zapisany"
+            flash[:notice] = "Dokument został zapisany."
             redirect_to @document
         else
             flash[:warning] = @document.errors.full_messages

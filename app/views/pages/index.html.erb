@@ -8,10 +8,10 @@
             <p>Szybko, wygodnie, ekologicznie i bezkontaktowo. Wypróbuj już teraz!</p>
             <p class="lead">
             <% if logged_in? %>
-                <%= link_to "Złóż wniosek", new_document_path, class:"btn btn-primary btn-lg"%> 
+                <%= link_to "Złóż wniosek", new_document_path, class:"btn btn-info btn-lg"%> 
             <% else %>
-                <%= link_to "Zarejestruj się", new_user_path, class:"btn btn-primary btn-lg"%> 
-                <%= link_to "Zaloguj się", login_path, class:"btn btn-primary btn-lg"%>
+                <%= link_to "Zarejestruj się", new_user_path, class:"btn btn-info btn-lg"%> 
+                <%= link_to "Zaloguj się", login_path, class:"btn btn-info btn-lg"%>
             <% end %>
             </p>
         </div>

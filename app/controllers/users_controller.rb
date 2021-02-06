@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         if @user.id != current_user.id
-            flash[:notice] = "Illegal action"
+            flash[:notice] = "Nielegalna akcja."
             redirect_to root_path
         end  
         if admin?
@@ -26,8 +26,8 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            session[:user_id] = @user.id
-            flash[:notice] = "Welcome to my website! You have successfully signed up." 
+            #session[:user_id] = @user.id
+            flash[:notice] = "Witaj w gronie użytkowników. Aby rozpocząć korzystanie z serwisu poczekaj na akceptację konta." 
             redirect_to root_path
         else 
             render 'new'
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
             end
             user.save
         end
-        flash[:notice] = 'Użytkownicy zaktualizowani'
+        flash[:notice] = 'Użytkownicy zostali zaktualizowani.'
         redirect_to '/users'
     end
 
