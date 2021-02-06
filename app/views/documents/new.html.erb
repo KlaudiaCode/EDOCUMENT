@@ -7,7 +7,6 @@
                 <h5>Wpisz treść wniosku:</h5>
                 <%= form_with(model: @document, local: true) do |f| %>
                   <div class="form-row">
-                    <%# f.label :content, class: "col-2 col-form-label text-light" %>
                     <div class="col-md-12">
                       <%= f.text_area :content, rows:"3", class:"form-control rounded middle"%>
                     </div>

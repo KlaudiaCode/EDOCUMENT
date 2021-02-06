@@ -1,24 +1,24 @@
-    <div class="container middle">
-        <div class="row">
-        <div class="col">
-            <div class="jumbotron jumb">
-                <h1 class="display-4">Moje konto</h1><br>
-                <p class="lead">
-                NUMER UŻYTKOWNIKA (nr indeksu):
-                <%= @user.usernum %><br>
-                ADRES EMAIL:
-                <%= @user.email %><br><br></p>
-                    <%if admin?%>
-                    <%else%>
-                        <p class="lead">LISTA WNIOSKÓW:
-                        <hr class="my-4">
-                        <% @documents.each do |doc| %><br>
-                        <%= link_to doc.content, document_path(doc) %>
-                        <% end %></p>
-                    <%end%>
-                <p class="lead">
-                </p>
-            </div>
-        </div>
+<div class="container middle">
+    <div class="row">
+    <div class="col">
+        <div class="jumbotron jumb">
+            <h1 class="display-4">Moje konto</h1><br>
+            <p class="lead">
+            NUMER UŻYTKOWNIKA (nr indeksu):
+            <%= @user.usernum %><br>
+            ADRES EMAIL:
+            <%= @user.email %><br><br></p>
+                <%if admin?%>
+                <%else%>
+                    <p class="lead">LISTA WNIOSKÓW:
+                    <hr class="my-4">
+                    <% @documents.each do |doc| %><br>
+                    <%= link_to doc.content, document_path(doc) %>
+                    <% end %></p>
+                <%end%>
+            <p class="lead">
+            </p>
         </div>
     </div>
+    </div>
+</div>
